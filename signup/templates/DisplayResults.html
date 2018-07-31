@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+		{% for data in results %}
+		{{ data.email }}<br>
+		{% endfor %}
+		</div>
+	</div>
+</div>	
+</body>
+</html>

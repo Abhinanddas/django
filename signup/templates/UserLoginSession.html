@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UserLogin</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<style>
+	.nav{
+		height: 20%;
+		background-color: green;
+		text-align: right;
+		padding-right: 8%;
+		width: 103%;
+		margin-left: -2%;
+	}
+	.heading{
+		padding-top:5%; 
+		color:blue;
+		text-align: center;
+	}
+	#LoginForm{
+		color: green;
+		padding-top: 10%;
+		width: 50%;
+		margin-left: 10%;
+	}
+	.required{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2 col-xs-12 col-md-12">
+		<div class="nav">
+		<h4>Session Check</h4>
+		</div>
+		</div>
+		<h1 class="heading">Welcome To The User Login Portal </h1>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-3 col-xs-3"></div>
+		<div class="col-sm-6 col-xs-6" >
+		<h3>{{request.COOKIES.msg}}</h3>
+		<form method="post" id="LoginForm">
+			{%csrf_token%}
+			<div class="form-group">
+			<label>Email</label>
+			{{form.email}}
+			{{form.email.errors}}
+			</div>
+			<div class="form-group">
+			<label>Password</label>
+			{{form.password}}
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+		</div>
+		<div class="col-sm-3 col-xs-3"></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Data</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="" class="navbar-brand">List Data</a>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 col-sm-3"></div>
+	<div class="col-md-6 col-sm-6 col-xs-12">
+		<h3 style="text-align: center;">List Data From Database</h3>
+		<button class="btn btn-success" onclick="listdata()" id="list">List Data</button>
+	<div id="List"> 
+	</div>
+	</div>
+	<div class="col-md-3 col-sm-3"></div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+	function listdata(){
+		$.ajax({
+			url:'list-data',
+			datatpe:'json',
+			success:function(results_serialized,number_serialized){
+			var results = JSON.parse(results_serialized);
+			var count= results.length;
+			$.each( results, function(i,fields, email ) {
+  			document.getElementById("List").innerHTML=results[i].fields.email
+			});
+			}
+		})
+	}
+</script>
+</html>
